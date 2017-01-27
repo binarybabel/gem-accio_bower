@@ -1,0 +1,16 @@
+################################################
+#         ACCIO BOWER INSTALLATION             #
+################################################
+
+  Add the following to any project's .bowerrc
+  to ensure Bower assets are installed inside
+  the Rail's project assets directory...
+
+{"directory": "vendor/assets/bower_components"}
+
+  The Rails console will also output similar
+  instructions if the directory is not found
+  at startup.
+
+  You should still include `bower install`
+  in build scripts for your projects.
