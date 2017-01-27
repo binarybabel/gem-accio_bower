@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
   end
 
   spec.files += ['version.lock']
-  spec.add_runtime_dependency 'versioneer', '~> 0.2'
+  spec.add_runtime_dependency 'versioneer'
 
   spec.add_runtime_dependency 'rails'
   spec.add_runtime_dependency 'sprockets'

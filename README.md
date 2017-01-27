@@ -1,28 +1,35 @@
-# Accio Bower
+# Bower Sprockets for Ruby on Rails
 
-**Bower** asset processor for **Rails 4/5**, supporting ***CSS/JS URL Rewriting*** (images, fonts, etc.), and production ***Hashes/Digests***.
+[![Join the chat at https://gitter.im/binarybabel/Latestver](https://badges.gitter.im/binarybabel/gem-accio_bower.svg)](https://gitter.im/binarybabel/gem-accio_bower?utm_source=badge&utm_medium=badge&utm_content=badge) [![Gem Version](https://badge.fury.io/rb/accio_bower.svg)](https://badge.fury.io/rb/accio_bower)
+
+**Bower** asset processor for **Rails 4/5** Sprockets, featuring:
+
+  + ***CSS/JS URL Rewriting*** for images, fonts, etc.
+  + Support for production ***Hashes/Digests***
+
+A rewrite/evolution of the Gem [Bowerify](https://rubygems.org/gems/bowerify), with new capabilities.
 
 ## Installation
 
-Add this line to your application's `Gemfile`:
+Add this line to your application's **`Gemfile`**:
 
 ```ruby
 gem 'accio_bower'
 ```
 
-And this line to a new/existing `.bowerrc` file:
+And this line to a new/existing **`.bowerrc`** file:
 
 ```json
 {"directory": "vendor/assets/bower_components"}
 ```
 
-If you **DO NOT** yet have a `bower.json` file:
+If you **DO NOT** yet have a **`bower.json`** file:
 
     $ bundle install
     $ bower init    # follow instructions
-    $ bower install --save A-BOWER-PKG-YOU-WANT
+    $ bower install --save SOME-BOWER-DEPDENDENCY
     
-If you **ALREADY** have a `bower.json` file:
+If you **ALREADY** have a **`bower.json`** file:
 
     $ rm -rf bower_components
     $ bundle install
@@ -30,13 +37,22 @@ If you **ALREADY** have a `bower.json` file:
 
 ### To include CSS/JS files in your application
 
-Require the name of the file under the `vendor/assets/bower_components` path.
+Use the name of the file under the `vendor/assets/bower_components` path.
 
-For example, to include `font-awesome` in `application.css`
+For example, to include `font-awesome` in **`application.css`**:
 
 ```
  *= require 'font-awesome/css/font-awesome.min'
 ```
+
+### You'll still need `$ bower install`
+
+This gem does not execute or modify your Bower configuration or components.
+
+* Run `$ bower install` whenever you modify **`bower.json`**
+* If you're building in a sandbox, CI, Docker, Heroku, etc.
+  * Include `$ bower install; bower prune` in your build-script.
+  * Consider saving/restoring `vendor/assets/bower_components` as a build cache.
 
 ## Configuration
 
